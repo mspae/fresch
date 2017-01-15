@@ -28,7 +28,7 @@ module.exports = function saveConfig(config, complete, alias) {
   let newConfig = extend({}, oldConfig, config);
 
   // is alias and complete is not set, compute the diff
-  if (alias && !snapshot) {
+  if (alias && !complete) {
     newConfig = diff(globalConfig, newConfig);
   }
 
@@ -39,6 +39,6 @@ module.exports = function saveConfig(config, complete, alias) {
 
   store.set(adress, newConfig);
 
-  log(message(alias, !snapshot), "success");
+  log(message(alias, !complete), "success");
   log(newConfig, "info");
 };

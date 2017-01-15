@@ -63,12 +63,12 @@ module.exports = function setOptions(program, opts = []) {
       case "save-config":
         program
           .option(
-            "-s, --snapshot",
-            "save a complete snapshot of current config in alias"
+            "-C, --complete",
+            "save a complete snapshot of config (opposite of --diff)"
           )
           .option(
             "-D, --diff",
-            "save only the diff from the global config in alias config (opposite of --snapshot)"
+            "save only the overwritten config (opposite of --complete)"
           );
         break;
 

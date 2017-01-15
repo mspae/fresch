@@ -34,10 +34,10 @@ module.exports = function getConfig(program, alias, allowInvalidAliasConfig) {
   }
   const config = extend({}, globalConfig, aliasConfig, parameters);
 
-  // make sure only snapshot is set, not diff
+  // make sure only complete is set, not diff
   if (config.diff) {
     delete config.diff;
-    config.snapshot = false;
+    config.complete = false;
   }
 
   return config;
