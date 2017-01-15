@@ -37,6 +37,11 @@ log("• Syncing database dump to local temp directory ...", "info", true);
 run(rsync(config, dumpLocation, dumpLocation), config.simulate);
 log("• Synced dump to local temp directory", "success", true);
 
+// clean up dump on remote
+log("• Cleaning up dump on remote ...", "info", true);
+run(ssh(config, `rm ${dumpLocation}`), config.simulate);
+log("• Cleaned up dump on remote", "success", true);
+
 // import dump
 log("• Importing dump to local database ...", "info", true);
 run(
