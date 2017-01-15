@@ -24,12 +24,11 @@ Showing global configuration:
 
 ## Requirements
 
-(Fresch should just work out of the box with most Unix-like systems)
-
 * `rsync` (A version which supports `--info=progress2`)
 * `gzip`
 * `ssh` (needs to be properly configured (= no passwords or keys need to be explicitly passed for it to work))
 * `mysql` (A custom binary can be configured)
+* `pv`
 * On the remote server: `mysqldump` and `gzip`
 * `/tmp` is the temporary directory and can be written to
 

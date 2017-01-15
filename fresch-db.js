@@ -45,7 +45,7 @@ log("• Cleaned up dump on remote", "success", true);
 // import dump
 log("• Importing dump to local database ...", "info", true);
 run(
-  `pv ${dumpLocation} | gunzip | pv | ${config.localdbbin} -h ${config.localdbhost} -u ${config.localdbuser} --password="${config.localdbpass}" ${config.localdb}`,
+  `pv -f ${dumpLocation} | gunzip | ${config.localdbbin} -h ${config.localdbhost} -u ${config.localdbuser} --password="${config.localdbpass}" ${config.localdb}`,
   config.simulate
 );
 log("• Imported dump to local database", "success", true);
