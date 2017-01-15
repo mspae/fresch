@@ -1,4 +1,6 @@
-    Update local dev environment with files and database from a remote server
+# fresch
+
+    Refresh local dev environment with files and database from a remote server
 
 Fresch is a command line tool which basically wraps around `rsync` and `mysql` (and `mysqldump`). You can save global connection configuration and alias specific configuration and then quickly sync htdocs and databases by using the alias.
 
