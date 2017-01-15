@@ -19,17 +19,24 @@ module.exports = function checkConfig(config, requiredOpts = []) {
   };
   let errorMessage = "";
 
+  // iterate over the groups
   requiredOpts.map(configGroupName => {
+    // iterate over the options
     configGroups[configGroupName].map(configName => {
+      // if the option is undefined, append to the errorMessage
       if (config[configName] === undefined) {
-        errorMessage += `\n• ${configName} config missing!`;
+        errorMessage += `\n• ${configName} missing!`;
       }
     });
   });
+
+  // if there is an error, append one final explanation and exit
   if (errorMessage.length > 0) {
     errorMessage += "\n\nRequired config could not be inferred!";
     log(errorMessage, "error");
     process.exit(1);
   }
+
+  // otherwise return the config
   return config;
 };

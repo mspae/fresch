@@ -1,19 +1,13 @@
-/**
-* receives a program and applies all options
-*/
 function splitExcludeDirs(str) {
   return str.split(",").map(str => {
     return `--exclude ${str.trim()}`;
   }).join(" ");
 }
 
-function coerceBool(str) {
-  if (str === "false") {
-    return false;
-  }
-  return true;
-}
-
+/**
+* receives a program and applies all options, opts is an array of option groups
+* (also used in check-config.js) to determine what options to allow/require
+*/
 module.exports = function setOptions(program, opts = []) {
   opts.forEach(groupName => {
     switch (groupName) {
@@ -30,19 +24,22 @@ module.exports = function setOptions(program, opts = []) {
             "-d, --localdbbin <bin>",
             "adress of the local mysql executable"
           )
-          .option("-l, --localdbhost <host>", "host of the local mysql server")
+          .option(
+            "-l, --localdbhost <host>",
+            "host of the local database server"
+          )
           .option("-d, --localdb <dbname>", "name of the local database")
-          .option("-u, --localdbuser <user>", "user for the local mysql DB")
-          .option("-p, --localdbpass [pw]", "password for the local mysql DB")
+          .option("-u, --localdbuser <user>", "user for the local database")
+          .option("-p, --localdbpass [pw]", "password for the local database")
           .option(
             "-E, --remotedbhost <host>",
-            "host of the remote mysql server"
+            "host of the remote database server"
           )
           .option("-m, --remotedb <dbname>", "name of the remote database")
-          .option("-o, --remotedbuser <user>", "user for the remote mysql DB")
+          .option("-o, --remotedbuser <user>", "user for the remote database")
           .option(
             "-t, --remotedbpass [pw]",
-            "password for the remote mysql DB"
+            "password for the remote database"
           );
         break;
 
@@ -55,11 +52,11 @@ module.exports = function setOptions(program, opts = []) {
           )
           .option(
             "-r, --remotedir <dir>",
-            "root directory of the Drupal installation on the remote host"
+            "directory to sync from on the remote host"
           )
           .option(
             "-L, --localdir <dir>",
-            "root directory of the Drupal installation on the local host"
+            "directory to  sync to on the local host"
           );
         break;
 
@@ -78,7 +75,7 @@ module.exports = function setOptions(program, opts = []) {
       case "remote":
         program
           .option("-P, --port <port>", "port for ssh connection", parseInt)
-          .option("-U, --remoteuser <user>", "username/server environment")
+          .option("-U, --remoteuser <user>", "user on the remote host")
           .option("-R, --remotehost <host>", "remote host");
         break;
 

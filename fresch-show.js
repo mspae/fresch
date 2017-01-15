@@ -19,5 +19,4 @@ if (alias) {
 }
 
 log(message, "info");
-
 log(config, "info");
