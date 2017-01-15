@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write ./fresch.js ./fresch*.js ./utils/*.js",
-    "prepublish": "format"
+    "prepublish": "npm run format"
   },
   "devDependencies": {
     "prettier": "^0.0.7"
