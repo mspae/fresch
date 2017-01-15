@@ -3,7 +3,6 @@
   "version": "2.0.1",
   "main": "fresch.js",
   "bin": "fresch.js",
-  "man": "./man.0",
   "license": "MIT",
   "keywords": [
     "development",
@@ -20,9 +19,8 @@
   },
   "bugs": "https://github.com/mspae/fresch/issues",
   "scripts": {
-    "build-man": "node fresch.js help > ./man.0",
     "format": "prettier --write ./fresch.js ./fresch*.js ./utils/*.js",
-    "prepublish": "npm run format && npm run build-man"
+    "prepublish": "npm run format"
   },
   "engines": {
     "node": ">= 6.9.2"
