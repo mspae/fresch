@@ -1,6 +1,6 @@
 const diff = require("object-diff");
 const extend = require("extend");
-const store = require("./store")();
+const store = require("./store");
 const log = require("./log");
 
 function message(alias, diff) {

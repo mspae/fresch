@@ -1,5 +1,5 @@
 const extend = require("extend");
-const store = require("./store")();
+const store = require("./store");
 const log = require("./log");
 
 module.exports = function getConfig(program, alias, allowInvalidAliasConfig) {
