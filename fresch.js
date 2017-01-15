@@ -6,7 +6,7 @@ const pkg = require("./package.json");
 program
   .version(pkg.version)
   .description(
-    "Refresh local dev environment with files and database from a remote installation"
+    "Refresh local dev environment with files and database from a remote server"
   )
   .command("htdocs [alias]", "sync remote htdocs with the local one")
   .command("db [alias]", "sync remote database with the local one")

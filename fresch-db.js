@@ -38,9 +38,9 @@ run(rsync(config, dumpLocation, dumpLocation), config.simulate);
 log("• Synced dump to local temp directory", "success", true);
 
 // import dump
-log("• Importing dump to local mysql ...", "info", true);
+log("• Importing dump to local database ...", "info", true);
 run(
   `pv ${dumpLocation} | gunzip | pv | ${config.localdbbin} -h ${config.localdbhost} -u ${config.localdbuser} --password="${config.localdbpass}" ${config.localdb}`,
   config.simulate
 );
-log("• Imported dump to local mysql", "success", true);
+log("• Imported dump to local database", "success", true);
