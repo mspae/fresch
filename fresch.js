@@ -28,6 +28,9 @@ program.on("--help", function() {
     true
   );
 
+  log("    Save an empty mysql password surrounded by quotes:", "help", true);
+  log('    $ fresch save myalias --remotedbpass ""\n', false, true);
+
   log("    Show the saved options for alias myalias:", "help", true);
   log("    $ fresch show myalias\n", false, true);
 
